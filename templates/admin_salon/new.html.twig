@@ -1,0 +1,15 @@
+{% extends 'base-backend.html.twig' %}
+
+{% block title %Neveau Salon{% endblock %}
+
+{% block body %}
+    <a href="{{ path('app_admin_salon_index') }}">Retour à la liste</a>
+    <h1>Créer un Salon</h1>
+
+    {{ include('admin_salon/_form.html.twig') }}
+
+{% endblock %}
+
+{% block javascripts %}
+<script src="{{ asset('js/add-item-link.js')}}"></script>
+{% endblock %}

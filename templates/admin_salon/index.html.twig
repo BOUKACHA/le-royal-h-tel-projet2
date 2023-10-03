@@ -1,0 +1,46 @@
+{% extends 'base-backend.html.twig' %}
+
+{% block title %}Salon{% endblock %}
+
+{% block body %}
+<div class="d-flex justify-content-between align-items-center">
+    <h1>Salon Seminaire</h1>
+    <a href="{{ path('app_admin_salon_new') }}" class="btn btn-success">Nouveau Salon</a>
+
+</div>
+    <table class="table table-index table-striped table-responsive">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Nom</th>
+                {# <th>Description</th> #}
+                <th>Capacite</th>
+                <th>Active</th>
+                <th>Slug</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for salon in salons %}
+            <tr>
+                <td>{{ salon.id }}</td>
+                <td>{{ salon.nom }}</td>
+                {# <td>{{ salon.description }}</td> #}
+                <td>{{ salon.capacite }}</td>
+                <td>{{ salon.isActive ? 'Yes' : 'No' }}</td>
+                <td>{{ salon.slug }}</td>
+                <td>
+                    {{ include('admin_salon/_delete_form.html.twig') }}
+                    <a href="{{ path('app_admin_salon_show', {'id': salon.id}) }}"class="btn btn-dark"><i class="align-middle" data-feather="eye"></i></a>
+                    <a href="{{ path('app_admin_salon_edit', {'id': salon.id}) }}"class="btn btn-success"><i class="align-middle" data-feather="edit-2"></i></a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="6">no Aucune entrée trouvée</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+{% endblock %}

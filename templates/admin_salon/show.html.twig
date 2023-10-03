@@ -1,0 +1,47 @@
+{% extends 'base-backend.html.twig' %}
+
+{% block title %}Salon{% endblock %}
+
+{% block body %}
+    <h1>Salon</h1>
+
+    <table class="table table-index table-striped table-responsive">
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ salon.id }}</td>
+            </tr>
+            <tr>
+                <th>Nom</th>
+                <td>{{ salon.nom }}</td>
+            </tr>
+            <tr>
+                <th>Description</th>
+                <td>{{ salon.description }}</td>
+            </tr>
+            <tr>
+                <th>Capacite</th>
+                <td>{{ salon.capacite }}</td>
+            </tr>
+            <tr>
+                <th>IsActive</th>
+                <td>{{ salon.isActive ? 'Yes' : 'No' }}</td>
+            </tr>
+            <tr>
+                <th>Slug</th>
+                <td>{{ salon.slug }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <a href="{{ path('app_admin_salon_index') }}">back to list</a>
+
+    <a href="{{ path('app_admin_salon_edit', {'id': salon.id}) }}"class="btn btn-success"><i class="align-middle" data-feather="edit-2"></i></a>
+
+    {{ include('admin_salon/_delete_form.html.twig') }}
+{% endblock %}
+
+{% block javascripts %}
+<script src="{{ asset('js/add-item-link.js')}}"></script>
+{% endblock %}
+

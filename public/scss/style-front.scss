@@ -1,0 +1,13 @@
+@import'_variables.scss';
+body{
+    background: url('../images/webb-dark.png');
+    font-family: 'poppins', sans-serif ;
+    @for $i from 1 through 6 {
+        h#{$i}{
+            font-family: 'Montserrat', sans-serif;
+        }
+    }
+    .signture{
+        font-weight: 300;
+    }
+}

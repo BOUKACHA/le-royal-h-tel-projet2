@@ -1,0 +1,46 @@
+{% extends 'base-backend.html.twig' %}
+
+{% block title %}Chambre{% endblock %}
+
+{% block body %}
+<div class="d-flex justify-content-between align-items-center">
+    <h1>Chambre</h1>
+    <a href="{{ path('app_admin_chambre_new') }}" class="btn btn-success">Nouvelle Chambre</a>
+</div> 
+
+<table class="table table-index table-striped table-responsive">
+<thead>
+            <tr>
+                <th>Id</th>
+                <th>Nom</th>
+                {# <th>Description</th> #}
+                <th>Tarif</th>
+                <th>Active</th>
+                <th>Slug</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for chambre in chambres %}
+            <tr>
+                <td>{{ chambre.id }}</td>
+                <td>{{ chambre.nom }}</td>
+                {# <td>{{ chambre.description }}</td> #}
+                <td>{{ chambre.tarif }}</td>
+                <td>{{ chambre.isActive ? 'Yes' : 'No' }}</td>
+                <td>{{ chambre.slug }}</td>
+                <td>
+                    {{ include('admin_chambre/_delete_form.html.twig') }}
+                    <a href="{{ path('app_admin_chambre_show', {'id': chambre.id}) }}"class="btn btn-dark"><i class="align-middle" data-feather="eye"></i></a>
+                    <a href="{{ path('app_admin_chambre_edit', {'id': chambre.id}) }}"class="btn btn-success"><i class="align-middele" data-feather="edit-2"></i></a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="6"><div class="test-start">Aucune donnée trouvée</div></td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+{% endblock %}

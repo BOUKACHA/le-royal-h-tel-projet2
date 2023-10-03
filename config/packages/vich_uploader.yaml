@@ -1,0 +1,28 @@
+vich_uploader:
+    db_driver: orm
+    # prise en charge de php 8
+    metadata:
+        type: attribute
+
+    mappings:
+        home:
+            uri_prefix: /images/home
+            upload_destination: '%kernel.project_dir%/public/images/home'
+            namer: Vich\UploaderBundle\Naming\SmartUniqueNamer
+        chambre:
+            uri_prefix: /images/chambre
+            upload_destination: '%kernel.project_dir%/public/images/chambre'
+            namer: Vich\UploaderBundle\Naming\SmartUniqueNamer
+        carousel:
+            uri_prefix: /images/carousel
+            upload_destination: '%kernel.project_dir%/public/images/carousel'
+            namer: Vich\UploaderBundle\Naming\SmartUniqueNamer
+        categorie:
+            uri_prefix: /images/categorie
+            upload_destination: '%kernel.project_dir%/public/images/categorie'
+            namer: Vich\UploaderBundle\Naming\SmartUniqueNamer
+        salon:
+            uri_prefix: /images/salon
+            upload_destination: '%kernel.project_dir%/public/images/salon'
+            namer: Vich\UploaderBundle\Naming\SmartUniqueNamer
+    
